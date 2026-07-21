@@ -39,7 +39,7 @@ Tkinter ships with the standard Windows Python installer. If `python -m tkinter`
 ### 1. Clone or download the repo
 
 ```powershell
-git clone <your-repo-url>
+git clone git@github.com:KeeblerNubs/Turbo_gif.git
 cd Turbo_gif
 ```
 
