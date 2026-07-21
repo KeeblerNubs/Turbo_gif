@@ -79,6 +79,23 @@ A small Tk test window should appear. Close it before continuing.
 python TurboGifSpammer.py
 ```
 
+
+## Build the Windows EXE release
+
+This project ships a PyInstaller spec and PowerShell build script for producing a single-file Windows executable. Build it on Windows because the app depends on Windows clipboard and foreground-window APIs.
+
+```powershell
+.\scripts\build_exe.ps1
+```
+
+The finished executable is written to:
+
+```text
+dist\TurboGifSpammer.exe
+```
+
+To publish an EXE from GitHub Actions, either run the **Build Windows EXE Release** workflow manually or push a version tag such as `v1.0.0`. Tagged builds attach `TurboGifSpammer.exe` to the GitHub release automatically.
+
 ## Daily usage
 
 1. Open Zoom in Chrome, Edge, Firefox, Brave, Opera, or Vivaldi.
@@ -132,9 +149,13 @@ python -m pip install --upgrade -r requirements.txt
 ## Project layout
 
 ```text
-TurboGifSpammer.py  # Tkinter app and Zoom Browser mode guard
-requirements.txt   # Python runtime dependencies
-README.md          # Setup, usage, and management walkthrough
+TurboGifSpammer.py        # Tkinter app and Zoom Browser mode guard
+TurboGifSpammer.spec      # PyInstaller recipe for the Windows EXE
+requirements.txt         # Python runtime dependencies
+requirements-build.txt   # Runtime dependencies plus PyInstaller
+scripts/build_exe.ps1    # Windows PowerShell EXE build script
+.github/workflows/       # Manual/tagged GitHub Actions EXE release workflow
+README.md                # Setup, usage, and management walkthrough
 ```
 
 ## Safety notes
